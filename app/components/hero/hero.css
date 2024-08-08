@@ -1,0 +1,26 @@
+.btn {
+    padding: 35px 64px;
+    width: 279px;
+    height: 89px;
+    border-radius: 20px;
+    border: 1px solid #FFF;
+    background: rgba(255, 255, 255, 0.26);
+    display: flex;
+    align-items: center;
+    color: #000;
+    font-family: "Roboto";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.2px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+
+
+.btn.active {
+    border: 1px solid #D41A24;
+    background: rgba(212, 26, 36, 0.12);
+}

@@ -1,25 +1,28 @@
-import Image from 'next/image'
-async function loadProducts() {
-    const res = await fetch("http://dummyjson.com/products");
-    if (!res.ok) {
-        throw new Error("Failed to fetch data");
-    }
-    return res.json()
+"use client"
+import { useState, useEffect } from 'react';
+import Sidebar from "./components/sidebar/pages";
+import Nav from "./components/nav/pages";
+import Hero from "./components/hero/pages";
+
+const Page = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
+  return (
+    <div>
+      <Nav searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <Sidebar />
+      <Hero searchQuery={searchQuery} />
+    </div>
+  );
 }
 
-
-export default async function Home() {
-    let {products} = await loadProducts();
-    return (
-        <main>
-            {
-                products?.map(product =>
-                    <div>
-                        <Image width={500} height={500} src= {product.images[0] } alt={product.title}/>
-                        <h3>{product.title}</h3>
-                    </div>
-                )
-           }
-         </main>
-    );
-};
+export default Page;

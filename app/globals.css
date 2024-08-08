@@ -2,3 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+  }
+  
+  body {
+    background: #E6E3E3;
+    padding: 20px;
+    padding-right: 300px;
+  }
+  .container {
+    max-width: 1300px;
+    padding: 0px 40px;
+    margin: 0 auto;
+    width: 100%;
+  }
